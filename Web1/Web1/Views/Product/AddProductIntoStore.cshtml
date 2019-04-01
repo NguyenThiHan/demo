@@ -1,0 +1,45 @@
+﻿@model Web1.Models.StoreIndexModel
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.product.IdProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product.NameProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product.CodeProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product.QualityProduct)
+        </th>
+    </tr>
+
+@foreach (var item in Model.Products) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodeProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QualityProduct)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })|
+            @Html.ActionLink("AddStore", "AddProductIntoStore", "Store", new { idStore=Model.store.NameStore, product=item})
+        </td>
+    </tr>
+}
+</table>

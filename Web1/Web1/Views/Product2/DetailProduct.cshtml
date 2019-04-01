@@ -1,0 +1,64 @@
+﻿
+@model Web1.Models.ProductIndexModel
+
+@{
+    ViewBag.Title = "DetailProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@*<div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(@Model => Model.product.NameProduct)
+            </dt>
+            <dd>
+                @Html.DisplayFor(@Model => Model.product.NameProduct)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(@Model => Model.product.CodeProduct)
+            </dt>
+            <dd>
+                @Html.DisplayFor(@Model => Model.product.CodeProduct)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(@Model => Model.product.QualityProduct)
+            </dt>
+            <dd>
+                @Html.DisplayFor(@Model => Model.product.QualityProduct)
+            </dd>
+        </dl>
+    </div>
+
+    <p>
+        @Html.ActionLink("Edit","UpdateProduct", new { idProduct = @Model.product.IdProduct , })|
+        @Html.ActionLink("Back to List","GetAllProduct")
+    </p>*@
+
+<div id="divDetailProduct">
+
+</div>
+
+@section Script
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(function () {
+            // Handler for .ready() called.
+            //$.get('/product2/getTest', {}, function (response) {
+            //    console.log(response);
+            //    $('#divAllProducts').html(response);
+            //});
+
+            $.get('/product2/DetailProduct2', {}, function (response) {
+                //console.log(response);
+                //debugger
+                $('#divDetailProduct').html(response);
+            });
+        });
+    </script>
+}

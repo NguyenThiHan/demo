@@ -1,0 +1,45 @@
+﻿@model Web1.Models.StoreIndexModel
+
+@{
+    ViewBag.Title = "GetAllStore";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAllStore</h2>
+
+<p>
+    @Html.ActionLink("New Store", "Create")
+</p>
+
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.store.IdStore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.store.NameStore)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in @Model.Stores)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdStore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameStore)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { @*idStore = item.idStore*@}) |
+                @Html.ActionLink("Details", "Details", new { @*idStore = item.idStore*@}) |
+                @Html.ActionLink("Delete", "Delete", new { @*idStore = item.idStore*@}) |
+                @Html.ActionLink("ListProduct", "GetAllProductInStore",new {idStore = item.IdStore})|
+                @Html.ActionLink("Add Product", "AddProductIntoStore",new {idStore = item.IdStore})
+            </td>
+        </tr>
+    }
+
+</table>

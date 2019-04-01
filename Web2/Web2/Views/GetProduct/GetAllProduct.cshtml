@@ -1,0 +1,53 @@
+﻿@model Web2.Models.ClientIndexModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Model.Title</h2>
+
+<p>
+    @Html.ActionLink("Add Product", "AddProduct")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(@Model=>@Model.product.IdProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(@Model => @Model.product.NameProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(@Model => @Model.product.CodeProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(@Model => @Model.product.QualityProduct)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in @Model.Products)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QualityProduct)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdProduct }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdProduct }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdProduct })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,76 @@
+﻿@model Web1.Models.ProductIndexModel
+
+@{
+    ViewBag.Title = "GetAllProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(@Model => @Model.product.IdProduct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(@Model => @Model.product.NameProduct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(@Model => @Model.product.CodeProduct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(@Model => @Model.product.QualityProduct)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in @Model.Products)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdProduct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameProduct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodeProduct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QualityProduct)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UpdateProduct", new { idProduct = item.IdProduct })|
+                    @Html.ActionLink("Details", "DetailProduct", new { idProduct = item.IdProduct })|
+                    @Html.ActionLink("Delete", "DeleteProduct", new { idProduct = item.IdProduct })
+                </td>
+            </tr>
+        }
+    </table>*@
+
+<div id="divAllProducts">
+
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(function () {
+            // Handler for .ready() called.
+            //$.get('/product2/getTest', {}, function (response) {
+            //    console.log(response);
+            //    $('#divAllProducts').html(response);
+            //});
+
+            $.get('/product2/GetAllProduct2', {}, function (response)
+            {
+                //console.log(response);
+                //debugger
+                $('#divAllProducts').html(response);
+            });
+        });
+    </script>
+}
